@@ -11,6 +11,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Clay.HttpClients;
 
+/// <inheritdoc cref="IClayOpenApiHttpClient" />
 public sealed class ClayOpenApiHttpClient : IClayOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
