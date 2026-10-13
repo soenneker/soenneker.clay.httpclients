@@ -29,7 +29,7 @@ public sealed class ClayOpenApiHttpClient : IClayOpenApiHttpClient
     {
         return _httpClientCache.Get(nameof(ClayOpenApiHttpClient), (config: _config, baseUrl: _config["Clay:ClientBaseUrl"] ?? _prodBaseUrl), static state =>
         {
-            var apiKey = state.config.GetValueStrict<string>("Clay:ApiKey");
+            var apiKey = state.config.GetStringStrict("Clay:ApiKey");
             string authHeaderName = state.config["Clay:AuthHeaderName"] ?? "clay-api-key";
             string authHeaderValueTemplate = state.config["Clay:AuthHeaderValueTemplate"] ?? "{token}";
             string authHeaderValue = authHeaderValueTemplate.Replace("{token}", apiKey, StringComparison.Ordinal);
